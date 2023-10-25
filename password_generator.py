@@ -76,4 +76,6 @@ while True:
         print('Type a number between 4 and 256')
 password = generate_password(password_length, options_dict[option])
 print('Your password is:', password)
+with open('History.txt', 'r') as generated_passwords:
+    print('you have generated',len(generated_passwords.readlines()), 'passwords')
 
