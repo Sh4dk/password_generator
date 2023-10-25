@@ -1,211 +1,75 @@
-import random
 import string
+import random
 import os
-#==========================================================================================
-def grs1(length): #grs = generate random string 
-    char = string.ascii_letters #char = character
-    rs = ''.join(random.choice(char) for _ in range(length)) #rs = random string
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
+def generate_password(length, options):
+    char = ''
+    for option in options:
+        if option == 'upper':
+            char += string.ascii_uppercase
+        elif option == 'lower':
+            char += string.ascii_lowercase
+        elif option == 'numbers':
+            char += string.digits
+        elif option == 'symbols':
+            char += "!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
+    
+    if char == '':
+        return "Invalid options selected. Please try again."
+    
+    password = ''.join(random.choice(char) for _ in range(length))
+    
     dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #UpperLower case letters only password
-#==========================================================================================
-def grs2(length): 
-    char = string.ascii_letters + string.digits
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #UpperLower case letters + numbers
-#==========================================================================================
-def grs3(length):
-    char = string.ascii_letters + string.digits +"!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #UpperLower case letters + numbers + symbols
-#==========================================================================================
-def grs4(length):
-    char = string.ascii_uppercase
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Uppercase letters only password
-#==========================================================================================
-def grs5(length):
-    char = string.ascii_uppercase + string.digits
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Uppercase letters + numbers
-#==========================================================================================
-def grs6(length):
-    char = string.ascii_uppercase + string.digits +"!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Uppercase letters + numbers + symbols
-#==========================================================================================
-def grs7(length):
-    char = string.ascii_lowercase 
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Lowercase letters only password
-#==========================================================================================
-def grs8(length):
-    char = string.ascii_lowercase + string.digits 
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Lowercase letters + numbers password
-#==========================================================================================
-def grs9(length):
-    char = string.ascii_lowercase + string.digits + "!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Lowercase letters + numbers + symbols password
-#==========================================================================================
-def grs10(length):
-    char = string.ascii_Letters + "!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #UpperLower letters + symbols password
-#==========================================================================================
-def grs11(length):
-    char = string.ascii_uppercase + "!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Uppercase letters + symbols password
-#==========================================================================================
-def grs12(length):
-    char = string.ascii_lowercase + "!;#$%&()*+,-./:;<=>?@[]^_`{|}~"
-    rs = ''.join(random.choice(char) for _ in range(length))
-    print('---------------------------------------------------')
-    print('your password is: ',end='')
-    dir_path = os.path.dirname(os.path.realpath('History.txt'))
-    if os.path.exists(dir_path)==False:
-        f = open('History.txt', 'x')
-    with open ('History.txt', 'a') as f:
-        f.write(rs + '\n')
-    return rs #Lowercase letters + symbols password
-#==========================================================================================
+    if not os.path.exists(dir_path):
+        with open('History.txt', 'x'):
+            pass
+    with open('History.txt', 'a') as f:
+        f.write(password + '\n')
+    
+    return password
+
+options_dict = {
+    1: ['upper', 'lower'],
+    2: ['upper', 'lower', 'numbers'],
+    3: ['upper', 'lower', 'numbers', 'symbols'],
+    4: ['upper', 'lower', 'symbols'],
+    5: ['upper'],
+    6: ['upper', 'numbers'],
+    7: ['upper', 'numbers', 'symbols'],
+    8: ['upper', 'symbols'],
+    9: ['lower'],
+    10: ['lower', 'numbers'],
+    11: ['lower', 'numbers', 'symbols'],
+    12: ['lower', 'symbols'],
+    13: ['numbers'],
+    14: ['symbols']
+}
+
+print('----------------------------')
+print('Select an option:')
+print('1. Upper and Lowercase letters')
+print('2. Upper and Lowercase letters with Numbers')
+print('3. Upper and Lowercase letters with Numbers and Symbols')
+print('4. Upper and Lowercase letters with Symbols')
+print('5. Uppercase letters only')
+print('6. Uppercase letters with Numbers')
+print('7. Uppercase letters with Numbers and Symbols')
+print('8. Uppercase letters with Symbols only')
+print('9. Lowercase letters only')
+print('10. Lowercase letters with Numbers')
+print('11. Lowercase letters with Numbers and Symbols')
+print('12. Lowercase letters with Symbols only')
+print('13. Symbols only')
+print('14. Numbers only')
+print('----------------------------')
+
 while True:
-    a=int(input('how many characters do you want your password to have:'))
-    if (128>=a>=4):
+    option = int(input('Enter the option number: '))
+    if option in options_dict:
         break
     else:
-        print('Enter a number between 4 to 128')
-numbers=input('do you want to have numbers in your password? (y,n)').lower()
-symbols=input('do you want to have symbols in your password? (y,n)').lower()
-Upper=input('do you want to have uppercase only letters in your password? (y,n)').lower()
-while True:
-    if (Upper=='y'):
-        Lower='n'
-        UpperLower='n'
-        break
-    elif(Upper!='y'):
-        Lower=input('do you want to have lowercase only letters in your password? (y,n)').lower()
-        if (Lower=='y'):
-            Upper=='n'
-            UpperLower='n'
-            break
-        elif(Lower!='y'):
-            UpperLower=input('do you want to have upper and lowercase letters in your password?(y,n)').lower()
-            break
-            if(UpperLower!='y'):
-                print('invalid inputs')
-#==========================================================================================
-if (UpperLower=='y' and numbers!='y' and symbols!='y'):
-    print(grs1(a))
-    
-if (UpperLower=='y' and numbers=='y' and symbols!='y'):
-    print(grs2(a))
-    
-if (UpperLower=='y' and numbers=='y' and symbols=='y'):
-    print(grs3(a))
-    
-if (UpperLower=='y' and numbers!='y' and symbols=='y'):
-    print(grs10(a))
-    
-if (Upper=='y' and numbers!='y' and symbols!='y'):
-    print(grs4(a))
+        print('Invalid option. Please try again.')
 
-if (Upper=='y' and numbers=='y' and symbols!='y'):
-    print(grs5(a))
+password_length = int(input('Enter the length of the password: '))
 
-if (Upper=='y' and numbers=='y' and symbols=='y'):
-    print(grs6(a))
-    
-if (Upper=='y' and numbers!='y' and symbols=='y'):
-    print(grs11(a))
-    
-if (Lower=='y' and numbers!='y' and symbols!='y'):
-    print(grs7(a))
-    
-if (Lower=='y' and numbers=='y' and symbols!='y'):
-    print(grs8(a))
-
-if (Lower=='y' and numbers=='y' and symbols=='y'):
-    print(grs9(a))
-    
-if (Lower=='y' and numbers!='y' and symbols=='y'):
-    print(grs12(a))
-    
-
+password = generate_password(password_length, options_dict[option])
+print('Your password is:', password)
