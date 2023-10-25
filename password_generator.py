@@ -68,8 +68,12 @@ while True:
         break
     else:
         print('Invalid option. Please try again.')
-
-password_length = int(input('Enter the length of the password: '))
-
+while True:
+    password_length = int(input('Enter the length of the password: '))
+    if 256>=password_length>=4:
+        break
+    else:
+        print('Type a number between 4 and 256')
 password = generate_password(password_length, options_dict[option])
 print('Your password is:', password)
+
