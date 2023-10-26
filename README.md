@@ -7,7 +7,7 @@
 	and at last you'll receive your password.
  <h2></h2>
 <h3>Side notes</h3>
-  generated passwords are stored in a txt file called "History"; 
+  generated passwords are stored in a txt file called "History",which the program creates it itself; 
   everytime the program made a password, it prints how many passwords 
   are inside the text file.
   
