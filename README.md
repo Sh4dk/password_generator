@@ -5,8 +5,9 @@
 	you type the number of the associated option then,
 	you'll be asked to enter the length of the password;
 	and at last you'll receive your password.
- <h2></h2>
-<h3>Side notes</h3>
+ <h2>Requirements</h2>
+Python 3
+<h2>Storing passwords</h2>
   generated passwords are stored in a txt file called "History",which the program creates it itself; 
   everytime the program made a password, it prints how many passwords 
   are inside the text file.
