@@ -5,7 +5,8 @@
 	you type the number of the associated option then,
 	you'll be asked to enter the length of the password;
 	and at last you'll receive your password.
-<h4>Side notes</h4>
+ <h2></h2>
+<h3>Side notes</h3>
   generated passwords are stored in a txt file called "History"; 
   everytime the program made a password, it prints how many passwords 
   are inside the text file.
